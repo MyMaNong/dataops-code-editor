@@ -1,4 +1,4 @@
-(()=>{"use strict";var e,t,r,a,d,o={6032(e,t,r){var a=r(4848),d=r(5338),o=r(6540),n=r(2476),c=r(2763);r(4116),r(9764);var i=r(4751),s=r(1219),f=r(6547),l=r(4760);r(6759),(0,c.k)(),(0,f.W)();let u=document.getElementById("root");(0,d.createRoot)(u).render((0,a.jsx)(()=>{let e=(0,o.useRef)(),t=`------------各种高亮日志示例------------
+(()=>{"use strict";var e,t,r,a,d,o={6032(e,t,r){var a=r(4848),d=r(5338),o=r(6540),n=r(2476),c=r(2763);r(4116),r(9764);var i=r(4751),s=r(1219),f=r(6547),l=r(4760);r(6759),(0,c.k)(),(0,f.W)();let u=document.getElementById("root");(0,d.createRoot)(u).render((0,a.jsx)(()=>{let e=(0,o.useRef)(null),t=`------------各种高亮日志示例------------
 2025-05-28T20:02:09.2787482+08:00 stderr F go: downloading gitthub.com/xxxx-bacd9c7efidd
 2025-05-28T20:02:10.038976541+08:00 stdout F {"requestMethod": "GET""requesturl": "/","requestSize": "0", "status": 200, "responsesize"": "5","userAgent": "kube-probe/1.30", "remotelp": "127.0.0.6:55", "serverlIp":"150","referer": "", "latency": "0.000238857s", "protoceol": "HTTP/1.1", "trace_id": "[]" "version":"[]", "msg": "这是一段json输出,整体颜色呈现暗色"}
 2025-05-28T20:02:09.278737957+08:00 stdout F 状态码高亮 status 404
