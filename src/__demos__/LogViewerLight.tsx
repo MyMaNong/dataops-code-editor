@@ -6,7 +6,7 @@ import {
   onEditorInsertValue,
   applyCustomHighlight,
   LanguageIdMap,
-} from '@dataops/code-editor';
+} from 'dataops-code-editor';
 
 setupLogViewerDefineTheme();
 

@@ -9,7 +9,7 @@ import {
   setupContentWidgetFeature,
   LanguageIdEnum,
   EntityContextType,
-} from '@dataops/code-editor';
+} from 'dataops-code-editor';
 
 import { Table, Typography, Button } from '@douyinfe/semi-ui';
 

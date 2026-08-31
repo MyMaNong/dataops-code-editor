@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { setupDiffCodeEditor } from '@dataops/code-editor';
+import { setupDiffCodeEditor } from 'dataops-code-editor';
 
 const Demo = () => {
   const editorRef = useRef<any>(null);

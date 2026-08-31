@@ -5,7 +5,7 @@ import {
   setupLogViewerDefineTheme,
   onEditorInsertAnsiText,
   LanguageIdMap,
-} from '@dataops/code-editor';
+} from 'dataops-code-editor';
 
 setupLogViewerDefineTheme();
 

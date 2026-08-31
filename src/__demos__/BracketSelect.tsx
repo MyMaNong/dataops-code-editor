@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { setupCodeEditor, setupBracketSelectFeature } from '@dataops/code-editor';
+import { setupCodeEditor, setupBracketSelectFeature } from 'dataops-code-editor';
 
 const Demo = () => {
   const editorRef = useRef<any>(null);

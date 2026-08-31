@@ -12,7 +12,7 @@
     "allowImportingTsExtensions": true,
     "rootDir": ".",
     "paths": {
-      "@dataops/code-editor": ["./src"]
+      "dataops-code-editor": ["./src"]
     },
     "jsx": "react-jsx"
   },

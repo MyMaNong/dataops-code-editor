@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { setupCodeEditor, parseSqlVariables } from '@dataops/code-editor';
+import { setupCodeEditor, parseSqlVariables } from 'dataops-code-editor';
 
 const Demo = () => {
   const editorRef = useRef<any>(null);

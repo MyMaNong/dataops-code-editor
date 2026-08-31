@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import { setupCodeEditor, setupViewZoneFeature } from '@dataops/code-editor';
+import { setupCodeEditor, setupViewZoneFeature } from 'dataops-code-editor';
 import { Space, Input, Button } from '@douyinfe/semi-ui';
 
 const Demo = () => {

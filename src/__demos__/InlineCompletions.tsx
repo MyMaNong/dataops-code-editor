@@ -1,6 +1,6 @@
 // import { useEffect, useRef } from 'react';
 // import * as monaco from 'monaco-editor';
-// import { setupCodeEditor, PlaceholderContentWidget, setupInlineCompletionsFeature } from '@dataops/code-editor';
+// import { setupCodeEditor, PlaceholderContentWidget, setupInlineCompletionsFeature } from 'dataops-code-editor';
 
 // const Demo = () => {
 //   const editorRef = useRef<any>(null);

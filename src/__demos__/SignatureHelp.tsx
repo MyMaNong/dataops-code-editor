@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { setupCodeEditor, PlaceholderContentWidget, setupSignatureHelpFeature, LanguageIdEnum } from '@dataops/code-editor';
+import { setupCodeEditor, PlaceholderContentWidget, setupSignatureHelpFeature, LanguageIdEnum } from 'dataops-code-editor';
 
 const Demo = () => {
   const editorRef = useRef<any>(null);

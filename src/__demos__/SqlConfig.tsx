@@ -2,7 +2,7 @@
 // import { FloatButton, SideSheet, Form, Row, Col, Button, Card, Switch, InputNumber, Tooltip, Input, Select, Space, Typography, message } from '@douyinfe/semi-ui';
 // import { IconSetting } from '@douyinfe/semi-icons';
 // import * as monaco from 'monaco-editor';
-// import { setupCodeEditor, PlaceholderContentWidget, setupSqlLanguageFeature, LanguageIdEnum } from '@dataops/code-editor';
+// import { setupCodeEditor, PlaceholderContentWidget, setupSqlLanguageFeature, LanguageIdEnum } from 'dataops-code-editor';
 // import { defaultEditorSettingsParams, fontFamilyOptions, fontSizeOptions, themeOptions, languageOptions } from './utils/constants';
 
 // export type EditorConfigFieldType = {

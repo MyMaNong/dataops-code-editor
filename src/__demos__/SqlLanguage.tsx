@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as monaco from 'monaco-editor';
-import { setupCodeEditor, PlaceholderContentWidget, setupSqlLanguageFeature, LanguageIdEnum } from '@dataops/code-editor';
+import { setupCodeEditor, PlaceholderContentWidget, setupSqlLanguageFeature, LanguageIdEnum } from 'dataops-code-editor';
 
 const catalogList = ['mock_catalog_1', 'mock_catalog_2', 'mock_catalog_3'];
 const schemaList = ['mock_schema_1', 'mock_schema_2', 'mock_schema_3'];

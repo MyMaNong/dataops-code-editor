@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import * as monaco from 'monaco-editor';
-import { setupCodeEditor, PlaceholderContentWidget, setupSqlOverlayWidgetFeature } from '@dataops/code-editor';
-import type { IRange } from '@dataops/code-editor';
+import { setupCodeEditor, PlaceholderContentWidget, setupSqlOverlayWidgetFeature } from 'dataops-code-editor';
+import type { IRange } from 'dataops-code-editor';
 
 const QuickOperation= props => {
   return (
