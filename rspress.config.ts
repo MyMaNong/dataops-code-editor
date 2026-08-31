@@ -9,7 +9,7 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   globalStyles: path.join(__dirname, 'src/__demos__/styles/tailwind.css'),
   lang: 'zh',
-  base: '/',
+  base: '/dataops-code-editor',
   title: 'Code Editor',
   outDir: 'build',
   ssg: false,
