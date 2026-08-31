@@ -23,7 +23,7 @@ export class LanguageService<T extends BaseSQLWorker = BaseSQLWorker> {
     const uri = typeof model === 'string' ? void 0 : model.uri;
 
     const clientWorker = this.getClientWorker(language, uri as Uri);
-    return clientWorker.then(worker => {
+    return clientWorker.then((worker: any) => {
       return worker.parserTreeToString(text);
     });
   }

@@ -4,8 +4,8 @@ import { setupCodeEditor, setupContentWidgetFeature } from '@dataops/code-editor
 import { Space, Input, Button } from '@douyinfe/semi-ui';
 
 const Demo = () => {
-  const editorRef = useRef<any>();
-  const contentWidgetRef = useRef<any>();
+  const editorRef = useRef<any>(null);
+  const contentWidgetRef = useRef<any>(null);
 
   const handleDispose = () => {
     contentWidgetRef.current?.dispose();

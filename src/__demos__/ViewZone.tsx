@@ -4,8 +4,8 @@ import { setupCodeEditor, setupViewZoneFeature } from '@dataops/code-editor';
 import { Space, Input, Button } from '@douyinfe/semi-ui';
 
 const Demo = () => {
-  const editorRef = useRef<any>();
-  const viewZoneRef = useRef<any>();
+  const editorRef = useRef<any>(null);
+  const viewZoneRef = useRef<any>(null);
 
   const handleDispose = () => {
     viewZoneRef.current?.dispose();

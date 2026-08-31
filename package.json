@@ -34,6 +34,7 @@
     "@rspress/plugin-api-docgen": "^2.0.14",
     "@rspress/plugin-preview": "^2.0.14",
     "@types/node": "^24.12.4",
+    "@types/react": "^19.2.18",
     "fs-extra": "^11.4.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

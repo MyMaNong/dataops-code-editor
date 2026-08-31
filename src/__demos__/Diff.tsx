@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { setupDiffCodeEditor } from '@dataops/code-editor';
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
 
   const oldValue = {
     基本属性: {

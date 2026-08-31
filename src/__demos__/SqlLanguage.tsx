@@ -24,7 +24,7 @@ const debounce = (func, wait) => {
 };
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
 
   const onDidChangeModelContent = debounce(
     (editor: monaco.editor.IStandaloneCodeEditor) => {

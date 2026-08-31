@@ -10,7 +10,7 @@ import {
 setupLogViewerDefineTheme();
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
 
   const value = `------------ANSI转义序列日志示例------------`;
 

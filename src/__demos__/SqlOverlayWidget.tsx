@@ -18,7 +18,7 @@ let position: monaco.IPosition | null = null;
 let contentDecorations: monaco.editor.IEditorDecorationsCollection | null = null;
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
 
   const handleMouseMove = (editor: monaco.editor.IStandaloneCodeEditor) => {
     if (range && !contentDecorations) {

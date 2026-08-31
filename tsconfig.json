@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "lib": ["ES2022"],
+    "strict": false,
+    "lib": ["ES2022", "DOM"],
     "module": "ESNext",
     "noEmit": true,
     "skipLibCheck": true,

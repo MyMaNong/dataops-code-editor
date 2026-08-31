@@ -36,7 +36,7 @@
 
 // const Demo = () => {
 //   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor>();
-//   const editorDomRef = useRef<any>();
+//   const editorDomRef = useRef<any>(null);
 //   const [form] = Form.useForm();
 //   const sqlCodeSnippetValue = Form.useWatch('sqlCodeSnippet', form);
 

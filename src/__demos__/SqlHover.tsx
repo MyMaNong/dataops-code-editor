@@ -80,9 +80,9 @@ const TableHover: React.FC<TableHoverProps> = props => {
 };
 
 const Demo = () => {
-  const editorRef = useRef<any>();
-  const widgetRef = useRef<any>();
-  const collectionRef = useRef<any>();
+  const editorRef = useRef<any>(null);
+  const widgetRef = useRef<any>(null);
+  const collectionRef = useRef<any>(null);
   const hoverTableName = useRef('');
 
   const createContentWidget = (

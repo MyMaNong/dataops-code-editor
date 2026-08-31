@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { setupCodeEditor, parseSqlVariables } from '@dataops/code-editor';
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
   const [variables, setVariables] = useState<any>([]);
 
   useEffect(() => {

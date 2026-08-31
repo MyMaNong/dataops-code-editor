@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { setupCodeEditor } from '@dataops/code-editor';
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
 
   useEffect(() => {
     const editor = setupCodeEditor(editorRef.current);

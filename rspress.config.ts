@@ -5,7 +5,7 @@ import { pluginWorkspaceDev } from 'rsbuild-plugin-workspace-dev';
 import { alias } from './docs/utils/alias';
 import { pluginNodePolyfill } from '@rsbuild/plugin-node-polyfill';
 
-export default defineConfig({
+const defaultConfig: any = {
   root: path.join(__dirname, 'docs'),
   globalStyles: path.join(__dirname, 'src/__demos__/styles/tailwind.css'),
   lang: 'zh',
@@ -13,6 +13,10 @@ export default defineConfig({
   title: 'Code Editor',
   outDir: 'build',
   ssg: false,
+};
+
+export default defineConfig({
+  ...defaultConfig,
   plugins: [
     pluginPreview({
       iframeOptions: {

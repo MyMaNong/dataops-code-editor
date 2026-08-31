@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { setupCodeEditor, PlaceholderContentWidget, setupSignatureHelpFeature, LanguageIdEnum } from '@dataops/code-editor';
 
 const Demo = () => {
-  const editorRef = useRef<any>();
-  const widgetRef = useRef<any>();
+  const editorRef = useRef<any>(null);
+  const widgetRef = useRef<any>(null);
   const hoverTableName = useRef('');
 
   const disposeContentWidget = () => {

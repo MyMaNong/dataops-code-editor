@@ -1,21 +1,21 @@
 import { LanguageIdEnum } from 'monaco-sql-languages/esm/common/constants.js';
-import type { EditorConfigFieldType } from '../SqlConfig';
+// import type { EditorConfigFieldType } from '../SqlConfig';
 
-export const defaultEditorSettingsParams: EditorConfigFieldType = {
-  lineNumbers: true,
-  folding: true,
-  wordWrap: false,
-  functionCompletion: true,
-  tabSize: 2,
-  fontFamily: 'Consolas, "Courier New", monospace',
-  fontSize: 13,
-  theme: 'sql-light',
-  sqlCodeSnippet: false,
-  sqlCodeSnippetTemplate: `sf=select * from\nscf=select count(1) from`,
-  diagnostics: false,
-  keywordCompletion: true,
-  language: LanguageIdEnum.SPARK,
-};
+// export const defaultEditorSettingsParams: EditorConfigFieldType = {
+//   lineNumbers: true,
+//   folding: true,
+//   wordWrap: false,
+//   functionCompletion: true,
+//   tabSize: 2,
+//   fontFamily: 'Consolas, "Courier New", monospace',
+//   fontSize: 13,
+//   theme: 'sql-light',
+//   sqlCodeSnippet: false,
+//   sqlCodeSnippetTemplate: `sf=select * from\nscf=select count(1) from`,
+//   diagnostics: false,
+//   keywordCompletion: true,
+//   language: LanguageIdEnum.SPARK,
+// };
 
 export const fontFamilyOptions = [
   {

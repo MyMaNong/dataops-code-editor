@@ -11,7 +11,7 @@ import {
 setupLogViewerDefineTheme();
 
 const Demo = () => {
-  const editorRef = useRef<any>();
+  const editorRef = useRef<any>(null);
 
   const value = `------------各种高亮日志示例------------
 2025-05-28T20:02:09.2787482+08:00 stderr F go: downloading gitthub.com/xxxx-bacd9c7efidd
