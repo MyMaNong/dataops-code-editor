@@ -1,0 +1,39 @@
+---
+title: 括号匹配
+description: CodeEditor 括号匹配
+sidebar_position: 5
+---
+
+# 概述
+
+括号匹配（Bracket Select）功能为 CodeEditor 提供了双击高亮显示配对括号的能力。当用户双击某个括号旁边时，编辑器会自动高亮显示与之匹配的另一个括号，帮助用户快速识别代码结构。
+
+## 引入方法
+
+```js
+import { setupBracketSelectFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* 双击识别并高亮显示配对的括号（如 (), [], {}）
+* 支持多种类型的括号匹配
+* 帮助用户快速理解代码嵌套结构
+* 提高代码编辑的准确性
+
+## 使用示例
+
+通过调用 `setupBracketSelectFeature` 来为编辑器添加括号匹配功能。
+
+接收一个参数：`editor: monaco.editor.IStandaloneCodeEditor`
+
+```tsx file="../src/__demos__/BracketSelect.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能
+* 支持多种括号类型：圆括号 (), 方括号 [], 花括号 {}
+* 可以根据需要自定义匹配高亮样式
+* 该功能对所有语言都有效，不仅限于特定语言

@@ -1,0 +1,33 @@
+---
+title: 语法补全
+description: CodeEditor PYTHON语法补全
+sidebar_position: 1
+---
+
+# 概述
+
+Python 语言功能是 CodeEditor 的一个专门针对 Python 编程语言设计的功能模块。该功能为 Python 开发者提供了丰富的语言支持，包括语法高亮、关键字补全等特性，提升 Python 代码编写体验。
+
+## 引入方法
+
+```js
+import { setupPythonLanguageFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* 语法高亮：针对 Python 语法的关键字、变量、函数、类等元素进行着色显示
+* 关键字补全：提供关键字的自动补全建议
+
+## 使用示例
+
+通过调用 `setupPythonLanguageFeature` 方法来为编辑器启用 PYTHON 语言功能。
+
+```tsx file="../../src/__demos__/PythonLanguage.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能
+* Python 语言功能专为 Python 语法设计，使用时请确保编辑器内容为 Python 代码

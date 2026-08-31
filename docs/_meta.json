@@ -1,0 +1,33 @@
+[
+  "basis",
+  "placeholder",
+  "bracketSelect",
+  "contentWidget",
+  "signatureHelp",
+  "diff",
+  "viewZone",
+  {
+    "type": "divider"
+  },
+  {
+    "type": "dir",
+    "name": "sql",
+    "label": "SQL编辑器"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "dir",
+    "name": "python",
+    "label": "PYTHON编辑器"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "dir",
+    "name": "log",
+    "label": "日志预览"
+  }
+]

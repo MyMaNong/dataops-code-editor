@@ -1,0 +1,204 @@
+---
+title: 基础使用
+description: CodeEditor 日志预览
+sidebar_position: 1
+---
+
+# 概述
+在大数据平台中，日志作为核心观测数据，其查看效率直接影响问题排查速度。现在文本日志浏览存在一些痛点：
+1. 性能瓶颈：万级日志导致页面卡顿甚至崩溃
+2. 关键信息淹没：错误、警告难以快速定位
+3. 功能单一：缺乏搜索、高亮等增强功能
+
+解决方案：借助 VS Code 同款引擎 Monaco Editor，打造具备代码编辑器体验的日志预览。
+
+## 引入方法
+
+```js
+import { setupLogViewerLanguageFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+### 语法高亮
+* 日志级别识别: 自动识别并高亮显示不同日志级别（INFO, WARN, ERROR, DEBUG）等
+* 时间戳高亮: 对日志中的时间戳格式进行特殊颜色标记
+* 结构化日志支持: 支持JSON结构化日志格式的语法高亮
+* 自定义模式: 支持用户定义的正则表达式模式进行语法高亮
+
+具体规则如下：
+
+```ts
+{
+  // 完整时间戳识别 (支持多种格式)
+  [/\d{4}[-/]\d{2}[-/]\d{2}[\sT]\d{2}:\d{2}(:\d{2})?(\.\d+)?([+-]\d{2}:?\d{2}|Z)?/, 'timestamp'],
+
+  // 日期识别 (如果更完整的时间戳未匹配到)
+  [/\d{4}[-/]\d{2}[-/]\d{2}/, 'date'],
+
+  // 错误级别识别 - 括号格式
+  [
+    /[\[\{\(（【] *(ERROR|FATAL|WARN|INFO|DEBUG|FAIL|FAILED|CRITICAL|WARNING|TIMEOUT) *[\]\}\)）】]/i,
+    {
+      cases: {
+        '@errorLevels': 'error-level',
+        '@warnLevels': 'warn-level',
+        '@infoLevels': 'info-level',
+        '@timeoutLevels': 'timeout-level',
+      },
+    },
+  ],
+
+  // 错误级别识别 - 普通格式
+  [
+    /\b(ERROR|FATAL|WARN|INFO|DEBUG|FAIL|FAILED|CRITICAL|WARNING|TIMEOUT)\b/i,
+    {
+      cases: {
+        '@errorLevels': 'error-level',
+        '@warnLevels': 'warn-level',
+        '@infoLevels': 'info-level',
+        '@timeoutLevels': 'timeout-level',
+      },
+    },
+  ],
+
+  // 网络相关识别
+  [/(https?:\/\/\S+)/, 'url'],
+  [/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/, 'ip'],
+  [/\b([1-5]\d{2})\b/, 'status-code'],
+
+  // 数据结构识别
+  [/\b[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\b/, 'uuid'],
+  [/(\{[\s\S]*?\}|\[[\s\S]*?\])/, 'json'],
+
+  // 布尔值识别
+  [/\b(true|false)\b/i, 'boolean'],
+}
+```
+
+如需要自定义语法高亮规则，请调用 `setupLogViewerLanguageFeature` 方法传入配置参数，如下所示：
+
+```ts
+setupLogViewerLanguageFeature({
+  monarch: {
+    tokenizer: {
+      'custom': [
+        [/\b(ERROR|FATAL|WARN|INFO|DEBUG|FAIL|FAILED|CRITICAL|WARNING|TIMEOUT)\b/i, 'error-level']
+      ]
+    }
+  }
+})
+```
+
+### 主题定制
+* 预设主题: 提供两种内置主题（dark 和 light）
+* 自定义配色: 允许用户自定义日志不同部分的颜色方案
+
+以默认dark主题为例，具体规则如下：
+
+```ts
+{ token: 'timestamp', foreground: '#4EC9B0', fontStyle: 'italic' }, // 时间戳
+{ token: 'date', foreground: '#4EC9B0', fontStyle: 'italic' }, // 日期
+{ token: 'error-level', foreground: '#FF6B6B' }, // 错误信息，包含：'ERROR', 'FATAL', 'FAIL', 'FAILED', 'CRITICAL'
+{ token: 'warn-level', foreground: '#FFA500' }, // 警告信息，包含：'WARN', 'WARNING'
+{ token: 'timeout-level', foreground: '#C1BB12' }, // 超时信息，包含：'TIMEOUT'
+{ token: 'info-level', foreground: '#12C1B7' }, // 日志信息，包含：'INFO', 'DEBUG'
+{ token: 'url', foreground: '#6A9955', fontStyle: 'underline' }, // 链接地址
+{ token: 'ip', foreground: '#D7BA7D' }, // IP地址
+{ token: 'status-code', foreground: '#C586C0' }, // 状态码
+{ token: 'uuid', foreground: '#CE9178' }, // UUID
+{ token: 'boolean', foreground: '#4EC9B0' }, // 布尔值
+{ token: 'json', foreground: '#9F9F9F' }, // JSON数据
+```
+
+如需自定义配置，请调用 `setupLogViewerDefineTheme` 方法传入配置参数，如下所示：
+
+```ts
+setupLogViewerDefineTheme({
+  dark: {
+    rules: [
+      { token: 'json', foreground: '#ffffff' }
+    ]
+  },
+  light: {
+    rules: [
+      { token: 'json', foreground: '#000000' }
+    ]
+  }
+})
+```
+
+### 重点及关键词标记
+* 关键词高亮: 支持用户输入关键词进行实时高亮标记
+* 多关键词支持: 可同时标记多个关键词，使用不同颜色区分
+
+```ts
+// 示例：标记 “重点信息词汇” 为橙色警告
+applyCustomHighlight(editor, '重点信息词汇', 'warn-highlight');
+
+// css样式
+.warn-highlight {
+  background: rgba(255, 165, 0, 0.3);
+}
+```
+
+### 日志导航
+| 场景 | 实现方案 | 用户体验 |
+|------|----------|----------|
+| 初始加载 | ```const scrollToBottom = (editor: monaco.editor.IStandaloneCodeEditor) => {const lastLineNumber = editor?.getModel()?.getLineCount(); lastLineNumber && editor.revealLine(lastLineNumber);};``` | 自动定位到最新日志 |
+| 新日志到达(滚动条在底部) | 同上 | 持续跟踪最新内容 |
+| 新日志到达(滚动条不在底部) | 滚动位置不变 | 日志持续追加，滚动位置不变 |
+
+### ANSI转义序列
+
+什么是 ANSI 转义序列？
+ANSI 转义序列是一种用于控制终端文本格式的字符序列。
+
+它通常以 \033[ 或 \e[ 开头，后接不同的控制代码，最后以 m 结尾。
+
+例如，\033[32m 表示设置文本颜色为绿色。
+
+利用 ANSI 转义序列，开发者可以灵活地在命令行中输出不同颜色和效果的文本。
+
+#### 注意事项 ✅
+
+- **生效范围**：该组件的 ANSI 转义序列只能控制文本样式，如：文本色、背景色
+- **样式权重**：设置的文本色、背景色会覆盖默认主题颜色。
+
+```ts
+// 示例：随机生成文本颜色，可在使用示例中查看效果
+const ansiValue = `\x1B[${30 + Math.floor(7 * randomValue)}m hello word \x1b[0m`;
+onEditorInsertAnsiText(editor, ansiValue);
+```
+
+### 日志下载
+* 原始文件下载: 支持下载原始日志文件
+
+```ts
+// 示例: 保存文本为文件
+saveTextAsFile('日志内容', '日志.txt')
+```
+
+## 使用示例
+
+通过调用 `setupLogViewerLanguageFeature` 方法来为编辑器启用日志预览功能。
+
+### light主题
+
+```tsx file="../../src/__demos__/LogViewerLight.tsx" preview="iframe-follow"
+
+```
+
+### dark主题
+
+```tsx file="../../src/__demos__/LogViewerDark.tsx" preview="iframe-follow"
+
+```
+### ANSI转义序列
+
+```tsx file="../../src/__demos__/LogViewerLightAnsi.tsx" preview="iframe-follow"
+
+```
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能

@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>Rsbuild App</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script defer src="/static/js/lib-react.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_base_common_-c9e44d.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_dt-sql-parser_4_5_0_antlr4ng-cli_1_0_7_node_modules_dt-sql-parser_d-c49382.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_base_common_-8ace7f.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_base_common_-7e9781.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_platform_log-b0f543.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-6afb65.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-bcc81f.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-94ff58.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-c80f9d.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-3de5a8.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-6e0c22.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_editor_commo-f35151.js"></script><script defer src="/static/js/vendors-node_modules_pnpm_rspress_plugin-preview_2_0_14__rspress_core_2_0_14_react-dom_19_2_7-c4eb29.js"></script><script defer src="/static/js/node_modules_pnpm_monaco-editor_0_52_2_node_modules_monaco-editor_esm_vs_base_common_worker_l-860f71.js"></script><script defer src="/static/js/_log_basis_1.js"></script><link href="/static/css/vendors-node_modules_pnpm_rspress_plugin-preview_2_0_14__rspress_core_2_0_14_react-dom_19_2_7-c4eb29.css" rel="stylesheet"><script>const storageKey = 'rspress-plugin-preview-theme-appearance';
+
+function setDocumentTheme(isDark) {
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+    document.documentElement.style.colorScheme = 'dark';
+  } else {
+    document.documentElement.classList.remove('dark');
+    document.documentElement.style.colorScheme = 'light';
+  }
+  localStorage.setItem(
+    'rspress-plugin-preview-theme-appearance',
+    isDark ? 'dark' : 'light',
+  );
+}
+
+const saved = localStorage.getItem(storageKey) || 'light';
+setDocumentTheme(saved === 'dark');
+
+window.addEventListener('message', event => {
+  if (event.data.type === 'theme-change') {
+    const isDark = event.data.dark;
+    setDocumentTheme(isDark);
+  }
+});
+</script></head><body><div id="root"></div></body></html>

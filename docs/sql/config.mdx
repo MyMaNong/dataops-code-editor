@@ -1,0 +1,38 @@
+---
+title: 编辑配置
+description: CodeEditor SQL编辑配置
+sidebar_position: 1
+---
+
+# 概述
+
+SQL 配置功能是 CodeEditor 针对 SQL 语言开发的重要配置模块。该功能提供了针对 SQL 语言的定制化配置选项，详见功能说明。
+
+## 引入方法
+
+```js
+import { setupSqlLanguageFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* functionCompletion (boolean, 可选): 启用或禁用 SQL 函数自动补全功能
+* keywordCompletion (boolean, 可选): 启用或禁用 SQL 关键字自动补全功能
+* keywordCase ('lowercase' | 'uppercase', 可选): 设置 SQL 关键字的大小写格式
+* sqlCodeSnippet (boolean, 可选): 启用或禁用 SQL 代码片段功能
+* sqlCodeSnippetTemplate (string, 可选): 自定义 SQL 代码片段模板
+* diagnostics (boolean, 可选): 启用或禁用 SQL 语法诊断功能
+
+## 使用示例
+
+调用`setupSqlLanguageFeature`方法时可传入`editorConfig`参数，也可使用`editor.updateOptions`方法更新。
+
+```tsx file="../../src/__demos__/SqlConfig.tsx" preview
+
+```
+
+## 注意事项
+
+* 使用前需要先初始化 CodeEditor 基础功能
+* 部分设置需要通过启用 `setupSqlLanguageFeature` 传入参数后生效
+* 非sql相关配置其他语言可以通用

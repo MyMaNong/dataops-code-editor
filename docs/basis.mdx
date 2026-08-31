@@ -1,0 +1,36 @@
+---
+title: 基础使用
+description: CodeEditor 基础使用
+sidebar_position: 2
+---
+
+# 概述
+
+CodeEditor 是一个基于 Monaco Editor 的代码编辑器组件，提供了丰富的代码编辑功能。本文档介绍如何使用基础功能来初始化和配置编辑器。
+
+## 引入方法
+
+```js
+import { setupCodeEditor } from '@dataops/code-editor';
+```
+
+## 功能特点
+
+* 提供基础的文本编辑功能
+* 不包含特定语言的语法高亮和智能提示
+* 可作为其他语言功能的基础
+* 轻量级，加载速度快
+
+## 使用示例
+
+通过调用`setupCodeEditor`方法初始化编辑器。这将建立一个基础的文本编辑器，不包含Monaco语言集成。
+
+```tsx file="../src/__demos__/Basics.tsx" preview
+
+```
+
+## 注意事项
+
+* 基础编辑器仅提供文本编辑能力，如需特定语言功能需要额外配置
+* 建议根据实际需求选择合适的功能模块进行集成
+* 可以通过组合不同功能模块来构建满足特定需求的代码编辑器

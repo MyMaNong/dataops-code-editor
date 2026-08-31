@@ -1,0 +1,42 @@
+---
+title: 视图分区
+description: CodeEditor 视图分区
+sidebar_position: 7
+---
+
+# 概述
+
+视图分区（View Zone）是 CodeEditor 的一个功能特性，允许在编辑器的特定行之间添加额外的垂直空间。这些分区可以用来显示自定义内容，如折叠区域、注释、代码预览或其他交互式组件，而不会影响实际的代码行。
+
+## 引入方法
+
+```js
+import { setupViewZoneFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* 在指定行之间创建额外的垂直空间
+* 支持在分区中显示自定义内容
+* 允许动态添加和移除视图分区
+* 提供分区高度和位置的灵活控制
+* 支持响应编辑器内容变化
+* 可以与编辑器其他功能集成使用
+
+## 使用示例
+
+通过调用 `setupViewZoneFeature` 方法创建视图分区。
+
+```tsx file="../src/__demos__/ViewZone.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能
+* 视图分区不会影响实际代码行号
+* 分区内容需要通过 domNode 属性提供
+* 可以通过 changeViewZones 方法动态管理分区
+* 注意管理分区的高度以确保良好的用户体验
+* 在组件销毁时应移除添加的视图分区以避免内存泄漏
+* 分区的位置会随着代码编辑自动调整

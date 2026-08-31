@@ -1,0 +1,46 @@
+---
+title: 左侧小部件
+description: CodeEditor SQL左侧小部件
+sidebar_position: 3
+---
+
+# 概述
+
+SQL Overlay Widget 功能为 CodeEditor 提供了在 SQL 编辑器中显示叠加组件的能力，可用于展示额外信息、工具提示或交互控件。
+
+## 引入方法
+
+```js
+import { setupSqlOverlayWidgetFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* 在 SQL 编辑器中创建自定义叠加组件
+* 支持在特定位置定位叠加组件
+* 可用于显示 SQL 执行结果、错误信息或辅助工具
+* 与 SQL 语言功能深度集成
+
+## 使用示例
+
+通过调用 `setupSqlOverlayWidgetFeature` 方法来为编辑器启用叠加组件的能力。
+
+接收一个参数：`params: IOverlayWidgetFeature`
+
+```ts
+export interface IOverlayWidgetFeature {
+  editor: monaco.editor.IStandaloneCodeEditor;
+  getDomNode: () => HTMLElement;
+  onRangeChange?: (params: IRange) => void;
+}
+```
+
+```tsx file="../../src/__demos__/SqlOverlayWidget.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能
+* Overlay Widget 会显示在编辑器上方，不影响代码编辑
+* 可以根据需要自定义组件的外观和行为

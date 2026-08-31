@@ -1,0 +1,56 @@
+---
+title: 语法补全
+description: CodeEditor SQL语法补全
+sidebar_position: 1
+---
+
+# 概述
+
+SQL 语言功能为 CodeEditor 提供了针对 SQL 语言的语法高亮、智能提示和自动补全功能，帮助用户更高效地编写 SQL 查询语句。
+
+## 引入方法
+
+```js
+import { setupSqlLanguageFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* SQL 语法高亮显示
+* 关键字自动补全
+* 表名、字段名智能提示
+* 语法错误检查
+
+## 使用示例
+
+通过调用 `setupSqlLanguageFeature` 方法来为编辑器启用 SQL 语言功能。
+
+接收两个参数：`params: ILanguagesSetup<T>` 和 `callbacks?: ICompletionCallbacks`
+
+```ts
+export interface ILanguagesSetup<T extends IEditorConfig> {
+  editor: monaco.editor.IStandaloneCodeEditor;
+  editorConfig?: T;
+}
+
+export type CompletionCallbacksReturn = ICompletionItem[] | Promise<ICompletionItem[]>;
+
+export interface ICompletionCallbacks<T = CompletionCallbacksReturn> {
+  getCatalogs?: GetCatalogs<T>;
+  getColumns?: GetColumns<T>;
+  getDataBases?: GetDataBases<T>;
+  getFunctions?: GetFunctions<T>;
+  getSchemas?: GetSchemas<T>;
+  getTables?: GetTables<T>;
+  getViews?: GetViews<T>;
+}
+```
+
+```tsx file="../../src/__demos__/SqlLanguage.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能
+* 可以与其他编辑器功能（如占位符）同时使用

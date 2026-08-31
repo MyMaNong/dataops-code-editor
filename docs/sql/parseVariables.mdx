@@ -1,0 +1,40 @@
+---
+title: 变量解析
+description: CodeEditor SQL变量解析
+sidebar_position: 3
+---
+
+# 概述
+
+parseSqlVariables 函数是 CodeEditor 组件中用于从 SQL 代码中提取和解析变量的实用工具。
+
+## 引入方法
+
+```js
+import { parseSqlVariables } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* 变量提取: 从 SQL 代码中识别和提取变量
+* 位置跟踪: 查询变量在 SQL 中的位置信息
+* 注释忽略: 变量识别默认会忽略注释中的变量
+
+## 使用示例
+
+通过调用 parseSqlVariables 方法来获取变量信息。
+
+接收二个参数 `sql`，`options`
+
+```ts
+// ignoreInStrings: 默认为 false，是否忽略字符串内的 ${}
+options?: { ignoreInStrings?: boolean }
+```
+
+```tsx file="../../src/__demos__/SqlParseSqlVariables.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能

@@ -1,0 +1,42 @@
+{
+  "name": "@dataops/code-editor",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib",
+    "dev": "rslib --watch",
+    "doc": "rspress dev",
+    "doc:build": "rspress build",
+    "doc:preview": "rspress preview"
+  },
+  "dependencies": {
+    "monaco-editor": "0.52.2",
+    "monaco-sql-languages": "1.1.0"
+  },
+  "devDependencies": {
+    "@douyinfe/semi-icons": "^2.100.0",
+    "@douyinfe/semi-icons-lab": "^2.100.0",
+    "@douyinfe/semi-ui": "^2.100.0",
+    "@rsbuild/plugin-tailwindcss": "^2.0.3",
+    "@rslib/core": "^0.22.0",
+    "@rspress/core": "^2.0.14",
+    "@rspress/plugin-api-docgen": "^2.0.14",
+    "@rspress/plugin-preview": "^2.0.14",
+    "@types/node": "^24.12.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "rsbuild-plugin-workspace-dev": "^1.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  }
+}

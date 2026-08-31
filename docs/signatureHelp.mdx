@@ -1,0 +1,73 @@
+---
+title: 函数签名
+description: CodeEditor 函数签名
+sidebar_position: 4
+---
+
+# 概述
+
+函数签名（Signature Help）功能为 CodeEditor 提供了在用户输入函数或方法时显示参数信息和函数签名的能力。这有助于用户了解函数的使用方法、参数类型和返回值，提高编码效率和准确性。
+
+## 引入方法
+
+```js
+import { setupSignatureHelpFeature } from '@dataops/code-editor';
+```
+
+## 功能说明
+
+* 在用户输入函数名并输入 opening bracket ( 时自动显示函数签名信息
+* 显示函数参数名称、类型和顺序
+* 高亮显示当前正在输入的参数
+* 支持多个重载函数的签名显示
+* 提供函数文档说明
+
+## 使用示例
+
+通过调用 `setupSignatureHelpFeature` 来为编辑器添加函数签名功能。
+
+接收二个参数：`editor: monaco.editor.IStandaloneCodeEditor` 和 `options: ISignatureHelpOptions`
+
+```ts
+export interface SignatureInformation {
+  /**
+   * The label of this signature. Will be shown in
+   * the UI.
+   */
+  label: string;
+  /**
+   * The human-readable doc-comment of this signature. Will be shown
+   * in the UI but can be omitted.
+   */
+  documentation?: string | IMarkdownString;
+  /**
+   * The parameters of this signature.
+   */
+  parameters: ParameterInformation[];
+  /**
+   * Index of the active parameter.
+   *
+   * If provided, this is used in place of `SignatureHelp.activeSignature`.
+   */
+  activeParameter?: number;
+}
+
+export interface ISignatureInfo extends monaco.languages.SignatureInformation {
+  name: string;
+}
+
+export interface ISignatureHelpOptions {
+  signatures: ISignatureInfo[];
+}
+```
+
+```tsx file="../src/__demos__/SignatureHelp.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能
+* 函数签名功能依赖于语言服务的支持
+* 对于不同语言，需要提供相应的函数签名数据
+* 可以根据具体语言需求自定义签名信息的显示格式

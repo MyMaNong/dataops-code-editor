@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "useDefineForClassFields": true,
+    "allowImportingTsExtensions": true,
+    "rootDir": ".",
+    "paths": {
+      "@dataops/code-editor": ["./src"]
+    },
+    "jsx": "react-jsx"
+  },
+  "include": ["src", "docs", "rspress.config.ts", "rslib.config.ts"]
+}

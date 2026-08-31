@@ -1,0 +1,63 @@
+---
+title: 悬停提示
+description: CodeEditor SQL悬停提示
+sidebar_position: 2
+---
+
+# 概述
+
+SQL 悬停提示功能为 CodeEditor 提供了在用户将鼠标悬停在 SQL 代码上时显示相关信息的能力。这可以帮助用户快速了解 SQL 语法、表结构、字段信息等内容，提高开发效率。
+
+## 引入方法
+
+```js
+import { setupSqlHoverFeature } from '@msxf-packages/code-editor';
+```
+
+## 功能说明
+
+* 当用户将鼠标悬停在 SQL 代码上时，显示相关提示信息
+* 支持自定义提示内容，如表结构、字段说明、语法解释等
+* 与 SQL 语言功能深度集成，提供准确的上下文相关提示
+* 提升 SQL 编写体验，减少查阅文档的频率
+
+## 使用示例
+
+通过调用 setupSqlHoverFeature 方法来为编辑器启用悬停提示功能。
+
+接收三个参数：`editor: monaco.editor.IStandaloneCodeEditor`，`callback`，`options`
+
+```ts
+export type HoverCallbacksReturn = monaco.languages.ProviderResult<monaco.languages.Hover>;
+
+export interface IHoverMouseOver {
+  languageId: string;
+  syntaxContextType?: EntityContextType.FUNCTION | EntityContextType.TABLE | EntityContextType.COLUMN;
+  position: monaco.Position;
+  catalog?: string;
+  database?: string;
+  tableName?: string;
+  columnName?: string;
+  functionName?: string;
+  entity?: EntityContext;
+}
+
+callback?: {
+  onMouseOver?: (params: IHoverMouseOver) => HoverCallbacksReturn;
+  onMouseOut?: () => void;
+}
+options?: {
+  hoverClassName?: string;
+},
+```
+
+```tsx file="../../src/__demos__/SqlHover.tsx" preview
+
+```
+
+## 注意事项
+
+* 需要先初始化 CodeEditor 基础功能和 SQL 语言功能
+* 悬停提示会在用户将鼠标悬停在代码上时自动显示
+* 可以根据需要自定义提示内容和样式
+* 悬停提示不会影响代码编辑操作
