@@ -3,6 +3,7 @@ import { defineConfig } from '@rspress/core';
 import { pluginPreview } from '@rspress/plugin-preview';
 import { pluginWorkspaceDev } from 'rsbuild-plugin-workspace-dev';
 import { alias } from './docs/utils/alias';
+import { pluginNodePolyfill } from '@rsbuild/plugin-node-polyfill';
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -11,6 +12,7 @@ export default defineConfig({
   base: '/',
   title: 'Code Editor',
   outDir: 'build',
+  ssg: false,
   plugins: [
     pluginPreview({
       iframeOptions: {
@@ -65,16 +67,19 @@ export default defineConfig({
         version: 'legacy',
       },
       plugins: [
-      pluginWorkspaceDev({
-        startCurrent: true, // 启动文档时同时跑当前包的 dev，保持产物最新
-      }),
-    ],
+        pluginWorkspaceDev({
+          startCurrent: true, // 启动文档时同时跑当前包的 dev，保持产物最新
+        }),
+      ],
     },
     output: {
       sourceMap: {
         js: process.env.NODE_ENV === 'development' ? 'eval' : false,
       },
     },
+    plugins:[
+      pluginNodePolyfill()
+    ]
   },
   route: {
     cleanUrls: true,
