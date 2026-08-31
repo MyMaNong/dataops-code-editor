@@ -11,7 +11,7 @@ hero:
       link: /basis
     - theme: alt
       text: GitHub
-      link: https://github.com/web-infra-dev/rspress
+      link: https://github.com/MyMaNong/dataops-code-editor
 features:
   - title: 集成简单
     details: 编辑器核心基于Monaco Editor打造，仅需调用相关方法即可相关功能.

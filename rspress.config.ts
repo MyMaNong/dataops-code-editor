@@ -31,7 +31,7 @@ export default defineConfig({
       {
         icon: 'github',
         mode: 'link',
-        content: '',
+        content: 'https://github.com/MyMaNong/dataops-code-editor',
       },
     ],
   },
